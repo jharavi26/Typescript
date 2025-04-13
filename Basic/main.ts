@@ -34,6 +34,16 @@ function logMessage(): void {            //function does something but doesn’t
 
 logMessage();
 
+//Any, never & void 
+
+//Arrow function with typescript 
+
+type AddFn = (x: number, y: number) => number;
+
+const add: AddFn = (a, b) => a * b;
+
+console.log(add(4,5));
+
 
 //Object Implementation 
 type Address = {
@@ -48,8 +58,10 @@ type Employee = {
   Degree?: number[];        //Use ? to indicate that a property is optional.
 };
 
-const emp: Employee = {
-  name: "Ravi",
+//Type alias :-A Type Alias is a way to give a name to a specific type so you can reuse it.
+
+const emp: Employee = {            //emp is a type alias. 
+  name: "Ravi",    
   skills : ["React", "Redux"],
   address: {
     city: "Mumbai",
@@ -59,3 +71,35 @@ const emp: Employee = {
 
 console.log(emp?.address?.city);
 console.log(emp);
+
+//Union := | -> Pipe in typescript
+//a union type allows a variable to hold more than one type of value.
+
+function mul(x1 : number | string, x2 : number | string ) : number | string{
+  let result;
+  if(typeof x1 === "number" && typeof x2 === "number" ){
+    return x1+x2;
+  }
+  else{
+    result = x1.toString() + x2.toString();
+  }
+  return result;
+}
+console.log(mul(5,4));
+console.log(mul("ravi","art"))
+
+// Literal Types :- Literal types allow you to specify exact values a variable can hold.
+
+type Status = "success" | "error";
+
+function handleStatus(status: Status) {
+  if (status === "success") {
+    console.log("Operation was successful!");
+  } else {
+    console.log("Something went wrong.");
+  }
+}
+console.log(handleStatus("success"));
+
+
+

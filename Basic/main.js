@@ -3,6 +3,7 @@ function addNumber(num1, num2) {
     return num1 + num2;
 }
 console.log(addNumber(10, 21));
+//Basic three DataTypes 
 var age = 21;
 var isboolean = true;
 var firstName = "Ravikumar";
@@ -26,6 +27,9 @@ function logMessage() {
     console.log("Usecase of Void");
 }
 logMessage();
+var add = function (a, b) { return a * b; };
+console.log(add(4, 5));
+//Type alias :-A Type Alias is a way to give a name to a specific type so you can reuse it.
 var emp = {
     name: "Ravi",
     skills: ["React", "Redux"],
@@ -36,3 +40,26 @@ var emp = {
 };
 console.log((_a = emp === null || emp === void 0 ? void 0 : emp.address) === null || _a === void 0 ? void 0 : _a.city);
 console.log(emp);
+//Union := | -> Pipe in typescript
+//a union type allows a variable to hold more than one type of value.
+function mul(x1, x2) {
+    var result;
+    if (typeof x1 === "number" && typeof x2 === "number") {
+        return x1 + x2;
+    }
+    else {
+        result = x1.toString() + x2.toString();
+    }
+    return result;
+}
+console.log(mul(5, 4));
+console.log(mul("ravi", "art"));
+function handleStatus(status) {
+    if (status === "success") {
+        console.log("Operation was successful!");
+    }
+    else {
+        console.log("Something went wrong.");
+    }
+}
+console.log(handleStatus("success"));
