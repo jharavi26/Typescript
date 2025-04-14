@@ -101,5 +101,72 @@ function handleStatus(status: Status) {
 }
 console.log(handleStatus("success"));
 
+class Person {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet(): void {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+const john = new Person("Ravikumar", 30);
+john.greet(); // Hello, my name is John and I am 30 years old.
+
+
+//Use readonly to make a property immutable after initialization.
+
+//Shortcut in constructore 
+
+class Book {
+  readonly title: string;
+
+  constructor(title: string) {
+    this.title = title;
+  }
+}
+
+const myBook = new Book("Atomic Habits");
+console.log(myBook);
+// myBook.title = "Another Book"; ❌ Error
+
+
+class Student {
+  constructor(public name: string, public age: number) {}
+
+  info(): void {
+    console.log(`${this.name} is ${this.age} years old.`);
+  }
+}
+
+const s = new Student("Art", 22);
+s.info();
+
+//Interface :- An interface in TypeScript is used to define the shape of an object. It specifies the structure (properties, methods, types), but does not provide implementation. Property can be seprated by semi-colon.
+
+interface Person2{
+  name : string;
+  age : number;
+  greeting(text:string) : void
+}
+
+let user3 : Person2;
+
+user3 = {
+  name : "Ravi",
+  age : 27,
+  greeting(text) : void{
+    console.log(`${text} & ${this.name}`)
+  }
+}
+
+console.log(user3);
+
+
 
 

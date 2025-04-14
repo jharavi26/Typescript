@@ -63,3 +63,47 @@ function handleStatus(status) {
     }
 }
 console.log(handleStatus("success"));
+var Person = /** @class */ (function () {
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.greet = function () {
+        console.log("Hello, my name is ".concat(this.name, " and I am ").concat(this.age, " years old."));
+    };
+    return Person;
+}());
+var john = new Person("Ravikumar", 30);
+john.greet(); // Hello, my name is John and I am 30 years old.
+//Use readonly to make a property immutable after initialization.
+//Shortcut in constructore 
+var Book = /** @class */ (function () {
+    function Book(title) {
+        this.title = title;
+    }
+    return Book;
+}());
+var myBook = new Book("Atomic Habits");
+console.log(myBook);
+// myBook.title = "Another Book"; ❌ Error
+var Student = /** @class */ (function () {
+    function Student(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Student.prototype.info = function () {
+        console.log("".concat(this.name, " is ").concat(this.age, " years old."));
+    };
+    return Student;
+}());
+var s = new Student("Art", 22);
+s.info();
+var user3;
+user3 = {
+    name: "Ravi",
+    age: 27,
+    greeting: function (text) {
+        console.log("".concat(text, " & ").concat(this.name));
+    }
+};
+console.log(user3);
