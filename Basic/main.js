@@ -107,3 +107,39 @@ user3 = {
     }
 };
 console.log(user3);
+//Type Guards :-Type Guards are runtime checks that narrow down the type of a variable.
+// They help TypeScript understand what type a variable is at a specific point, especially when you're working with union types.
+// common type Guard :- in, typeof , instanceof, Custom type Guard
+var Dog = /** @class */ (function () {
+    function Dog() {
+    }
+    Dog.prototype.bark = function () {
+        console.log("Woof!");
+    };
+    return Dog;
+}());
+var Cat = /** @class */ (function () {
+    function Cat() {
+    }
+    Cat.prototype.meow = function () {
+        console.log("Meow!");
+    };
+    return Cat;
+}());
+function makeSound(animal) {
+    if (animal instanceof Dog) {
+        animal.bark(); // ✅ TypeScript knows it's a Dog
+    }
+    else {
+        animal.meow(); // ✅ It's a Cat
+    }
+}
+console.log(makeSound(new Cat()));
+//Type Assertions :- “This value is of this specific type”, even if TypeScript can't infer it directly.
+var someValue = "hello";
+// Method 1: Using `as`
+var strLength = someValue.length;
+// Method 2: Using angle brackets (not recommended in JSX/TSX)
+var strLength2 = someValue.length;
+console.log(strLength);
+console.log(strLength2);

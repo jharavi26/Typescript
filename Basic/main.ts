@@ -147,7 +147,7 @@ class Student {
 const s = new Student("Art", 22);
 s.info();
 
-//Interface :- An interface in TypeScript is used to define the shape of an object. It specifies the structure (properties, methods, types), but does not provide implementation. Property can be seprated by semi-colon.
+// Interface :- An interface in TypeScript is used to define the shape of an object. It specifies the structure (properties, methods, types), but does not provide implementation. Property can be seprated by semi-colon.
 
 interface Person2{
   name : string;
@@ -166,6 +166,51 @@ user3 = {
 }
 
 console.log(user3);
+
+//Type Guards :-Type Guards are runtime checks that narrow down the type of a variable.
+// They help TypeScript understand what type a variable is at a specific point, especially when you're working with union types.
+
+// common type Guard :- in, typeof , instanceof, Custom type Guard
+
+
+class Dog {
+  bark() {
+    console.log("Woof!");
+  }
+}
+
+class Cat {
+  meow() {
+    console.log("Meow!");
+  }
+}
+
+function makeSound(animal: Dog | Cat) {
+  if (animal instanceof Dog) {
+    animal.bark(); // ✅ TypeScript knows it's a Dog
+  } else {
+    animal.meow(); // ✅ It's a Cat
+  }
+}
+
+console.log(makeSound(new Cat()))
+
+//Type Assertions :- “This value is of this specific type”, even if TypeScript can't infer it directly.
+
+let someValue = "hello";
+
+// Method 1: Using `as`
+let strLength = (someValue as string).length;
+
+// Method 2: Using angle brackets (not recommended in JSX/TSX)
+let strLength2 = (<string>someValue).length;
+
+console.log(strLength);
+console.log(strLength2);
+
+
+
+
 
 
 
